@@ -1,0 +1,40 @@
+name: Development Deploy
+
+#Temporarily Disable
+on:
+  workflow_dispatch: # Allows the workflow to be triggered manually
+
+
+# Concurrency group name ensures concurrent workflow runs wait for any in-progress job to finish
+concurrency:
+  group: dev-deploy
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
+
+
+jobs:
+  DevDeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::599520864657:role/GithubActionsRunnerForGbboMain
+          aws-region: us-east-1
+
+      - name: Deploy app
+        run: |
+          npx sst deploy --stage development

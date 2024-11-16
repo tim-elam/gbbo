@@ -1,0 +1,40 @@
+name: Create Production Release
+
+on:
+  workflow_dispatch: # Allows the workflow to be triggered manually
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up the GitHub CLI
+      - name: Set up GitHub CLI
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Fetch all tags
+      - name: Fetch tags
+        run: git fetch --tags
+
+      # Determine the next release version (e.g., increment patch version)
+      - name: Determine release version
+        id: version
+        run: |
+          latest_tag=$(git describe --tags --abbrev=0)
+          echo "Latest tag: $latest_tag"
+          # Increment patch version (e.g., v1.0.0 -> v1.0.1)
+          new_version=$(echo $latest_tag | awk -F. '{print $1"."$2"."$3+1}')
+          echo "new_version=$new_version" >> $GITHUB_ENV
+
+      # Create a GitHub release
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ env.new_version }}

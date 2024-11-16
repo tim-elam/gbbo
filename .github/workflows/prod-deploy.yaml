@@ -1,13 +1,16 @@
 name: Production Deploy
 
-on:
-  push:
-    branches:
-      - main
+# Trigger the workflow manually
+workflow_dispatch:
+  inputs:
+    release_tag:
+      description: "Release tag to deploy (e.g., v1.0.0)"
+      required: true
+      default: "latest"
 
 # Concurrency group name ensures concurrent workflow runs wait for any in-progress job to finish
 concurrency:
-  group: push-main
+  group: prod-deploy
 
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -15,11 +18,13 @@ permissions:
 
 
 jobs:
-  DeployApp:
+  ProdDeploy:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_tag }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
