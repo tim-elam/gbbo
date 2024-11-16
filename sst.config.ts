@@ -3,17 +3,28 @@
 export default $config({
   app(input) {
     return {
-      name: "gbbo",
-      removal: input?.stage === "production" ? "retain" : "remove",
-      home: "aws",
+      name: 'gbbo',
+      removal: input?.stage === 'production' ? 'retain' : 'remove',
+      home: 'aws',
     };
   },
+
   async run() {
-    const publicBucket = new sst.aws.Bucket("GbboPublic", {
-      access: 'public'
+    const databaseUrl = new sst.Secret('DatabaseUrl');
+
+    const supabaseCert = new sst.Secret('SupabaseCert');
+
+    const publicBucket = new sst.aws.Bucket('GbboPublic', {
+      access: 'public',
     });
-    new sst.aws.Nextjs("MyWeb", {
-      link: [publicBucket]
+
+    new sst.aws.Nextjs('MyWeb', {
+      link: [
+        publicBucket,
+        databaseUrl,
+        supabaseCert,
+      ],
     });
+
   },
 });

@@ -6,6 +6,10 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
+    "DatabaseUrl": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
     "GbboPublic": {
       "name": string
       "type": "sst.aws.Bucket"
@@ -13,6 +17,10 @@ declare module "sst" {
     "MyWeb": {
       "type": "sst.aws.Nextjs"
       "url": string
+    }
+    "SupabaseCert": {
+      "type": "sst.sst.Secret"
+      "value": string
     }
   }
 }
