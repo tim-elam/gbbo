@@ -41,8 +41,8 @@ jobs:
 
       - name: Update Secrets
         run: |
-          npx sst secret set DatabaseUrl ${{ secrets.PROD_DATABASE_URL }} --stage production
-          npx sst secret set SupabaseCert ${{ secrets.PROD_SUPABASE_CERT }} --stage production
+          npx sst secret set DatabaseUrl '${{ secrets.PROD_DATABASE_URL }}' --stage production
+          npx sst secret set SupabaseCert '${{ secrets.PROD_SUPABASE_CERT }}' --stage production
 
       - name: Deploy app
         run: |
