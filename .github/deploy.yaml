@@ -1,4 +1,5 @@
 name: Production Deploy
+
 on:
   push:
     branches:
@@ -16,18 +17,25 @@ permissions:
 jobs:
   DeployApp:
     runs-on: ubuntu-latest
-    env:
-    #Define your envs needed for static generation:
-    # ENV_NAME: ${{ secrets.ENV_NAME }}
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::599520864657:role/GithubActionsRunnerForGbboMain
           role-duration-seconds: 14390 #adjust as needed for your build time and match Maximum session duration in the aws console
           aws-region: us-east-1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Deploy app
         run: |
-          npm i && npx sst deploy --stage production
+          sst deploy --stage production
