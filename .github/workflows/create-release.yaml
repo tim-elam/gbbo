@@ -3,6 +3,9 @@ name: Create Production Release
 on:
   workflow_dispatch: # Allows the workflow to be triggered manually
 
+permissions:
+  contents: write
+
 jobs:
   create-release:
     runs-on: ubuntu-latest
