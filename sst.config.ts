@@ -9,6 +9,11 @@ export default $config({
     };
   },
   async run() {
-    new sst.aws.Nextjs("MyWeb");
+    const publicBucket = new sst.aws.Bucket("GbboPublic", {
+      access: 'public'
+    });
+    new sst.aws.Nextjs("MyWeb", {
+      link: [publicBucket]
+    });
   },
 });
