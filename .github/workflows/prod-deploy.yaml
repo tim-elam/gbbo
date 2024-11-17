@@ -40,7 +40,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Update Secrets
-        run: |
+        run: >
           npx sst secret set DatabaseUrl '${{ secrets.PROD_DATABASE_URL }}' --stage production
           npx sst secret set SupabaseCert '${{ secrets.PROD_SUPABASE_CERT }}' --stage production
 
