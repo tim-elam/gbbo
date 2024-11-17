@@ -13,6 +13,8 @@ permissions:
   id-token: write # This is required for requesting the JWT
   contents: read # This is required for actions/checkout
 
+env:
+  SST_STAGE: development
 
 jobs:
   DevDeploy:
@@ -40,15 +42,15 @@ jobs:
           SUPABASE_CERT: ${{ secrets.DEV_SUPABASE_CERT }}
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
         run: |
-          echo $SUPABASE_CERT | npx sst secret set SupabaseCert --stage production
-          echo $DATABASE_URL | npx sst secret set DatabaseUrl --stage production
+          echo $SUPABASE_CERT | npx sst secret set SupabaseCert
+          echo $DATABASE_URL | npx sst secret set DatabaseUrl
 
       - name: Deploy app
         env:
           SUPABASE_URL: ${{ secrets.DEV_SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.DEV_SUPABASE_ANON_KEY }}
         run: |
-          npx sst deploy --stage development
+          npx sst deploy
 
       - name: Migrate DB
         run: |
