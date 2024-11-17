@@ -6,7 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "migrate": "sst shell -- kysely migrate latest",
+    "migrate": "sst shell --print-logs -- kysely migrate latest",
     "migrate:make": "sst shell -- kysely migrate:make",
     "sst:dev": "sst dev",
     "start": "next start",
