@@ -7,7 +7,10 @@ export default defineConfig({
   dialect: new PostgresDialect({
     pool: new Pool({
       connectionString: Resource.DatabaseUrl.value,
-      ssl: { ca: Resource.SupabaseCert.value },
+      ssl: {
+        ca: Resource.SupabaseCert.value,
+        rejectUnauthorized: false,
+      },
     }),
   }),
 });
