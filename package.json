@@ -6,8 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "migrate": "sst dev -- kysely migrate latest",
-    "migrate:make": "sst dev -- kysely migrate:make",
+    "migrate": "sst shell -- kysely migrate latest",
+    "migrate:make": "sst shell -- kysely migrate:make",
     "sst:dev": "sst dev",
     "start": "next start",
     "supabase:generate-types": "supabase gen types --lang=typescript --project-id fotzabhzdnqznpivflup --schema public > types/supabase.ts"
