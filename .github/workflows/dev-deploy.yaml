@@ -36,9 +36,9 @@ jobs:
           aws-region: us-east-1
 
       - name: Update Secrets
-        run: >
-          npx sst secret set DatabaseUrl '${{ secrets.DEV_DATABASE_URL }}' --stage development
-          npx sst secret set SupabaseCert '${{ secrets.DEV_SUPABASE_CERT }}' --stage development
+        run: |
+          npx sst secret set DatabaseUrl '${{ secrets.DEV_DATABASE_URL }}' --stage development;
+          npx sst secret set SupabaseCert '${{ secrets.DEV_SUPABASE_CERT }}' --stage development;
 
       - name: Deploy app
         run: |
