@@ -1,9 +1,9 @@
-import { Kysely, PostgresDialect } from 'kysely';
-import { Pool } from 'pg';
-import type { Database } from '@/types/database';
+import { defineConfig } from 'kysely-ctl';
 import { Resource } from 'sst';
+import { PostgresDialect } from 'kysely';
+import { Pool } from 'pg';
 
-export const kysely = new Kysely<Database>({
+export default defineConfig({
   dialect: new PostgresDialect({
     pool: new Pool({
       connectionString: Resource.DatabaseUrl.value,

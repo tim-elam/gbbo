@@ -44,5 +44,12 @@ jobs:
           echo $DATABASE_URL | npx sst secret set DatabaseUrl --stage production
 
       - name: Deploy app
+        env:
+          SUPABASE_URL: ${{ secrets.DEV_SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.DEV_SUPABASE_ANON_KEY }}
         run: |
           npx sst deploy --stage development
+
+      - name: Migrate DB
+        run: |
+          npm run migrate
