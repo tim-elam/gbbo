@@ -1,6 +1,5 @@
 'use client';
 
-import styles from './form.module.css';
 import { FormEvent } from 'react';
 
 export default function Form({ url }: { url: string }) {
@@ -22,12 +21,9 @@ export default function Form({ url }: { url: string }) {
   }
 
   return (
-    <form
-      className={ styles.form }
-      onSubmit={ onSubmit }
-    >
-      <input name="file" type="file" accept="image/png, image/jpeg"/>
-      <button type="submit">Upload</button>
+    <form onSubmit={ onSubmit } className="flex max-sm:flex-col gap-4">
+      <input name="file" type="file" className="file-input" accept="image/png, image/jpeg"/>
+      <button className="btn btn-primary" type="submit">Upload</button>
     </form>
   );
 }
