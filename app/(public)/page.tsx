@@ -22,7 +22,7 @@ export default async function Home() {
             <ul className="list-disc">
               { series.map(entry => (
                 <li key={ entry.series_number }>
-                  <Link className="btn btn-lg btn-link" href="#">
+                  <Link className="pl-2 btn btn-lg btn-link" href="#">
                     { entry.series_number }
                   </Link>
                 </li>
@@ -37,15 +37,16 @@ export default async function Home() {
             <ul className="list-disc">
               {
                 bakers.map(baker => (
-                  <li key={ `${ baker.series_number }:${ baker.name }` }
-                      className="flex flex-col items-start">
-                    <Link className="btn-lg btn btn-link" href="#">
-                      { baker.name }
-                    </Link>
-                    <dl className="self-center flex gap-2">
-                      <dt className="text-gray-600">Series:</dt>
-                      <dd>{ baker.series_number }</dd>
-                    </dl>
+                  <li key={ `${ baker.series_number }:${ baker.name }` }>
+                    <div className="flex flex-col items-start">
+                      <Link className="pl-2 btn-lg btn btn-link" href="#">
+                        { baker.name }
+                      </Link>
+                      <dl className="self-center flex gap-2">
+                        <dt className="text-gray-600">Series:</dt>
+                        <dd>{ baker.series_number }</dd>
+                      </dl>
+                    </div>
                   </li>
                 ))
               }
