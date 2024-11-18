@@ -3,7 +3,7 @@ import { Pool } from 'pg';
 import type { Database } from '@/types/database';
 import { Resource } from 'sst';
 
-export const kysely = new Kysely<Database>({
+export const db = new Kysely<Database>({
   dialect: new PostgresDialect({
     pool: new Pool({
       connectionString: Resource.DatabaseUrl.value,

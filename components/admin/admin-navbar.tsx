@@ -1,8 +1,7 @@
 import { Bars3Icon } from '@heroicons/react/24/solid';
+import Link from 'next/link';
 
-export default function AdminNavbar({
-                                 children,
-                               }: Readonly<{
+export default function AdminNavbar({ children }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
@@ -15,11 +14,10 @@ export default function AdminNavbar({
               <Bars3Icon className="size-6"/>
             </label>
           </div>
-          <div className="mx-2 flex-1 px-2">Admin: G.B.B.O.</div>
+          <div className="mx-2 flex-1 px-2 text-xl">G.B.B.O. Admin</div>
           <div className="hidden flex-none lg:block">
             <ul className="menu menu-horizontal">
-              <li><a>Navbar Item 1</a></li>
-              <li><a>Navbar Item 2</a></li>
+              <li><Link href="/admin/series">Series</Link></li>
             </ul>
           </div>
         </div>
@@ -28,8 +26,7 @@ export default function AdminNavbar({
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu bg-base-200 min-h-full w-80 p-4">
-          <li><a>Sidebar Item 1</a></li>
-          <li><a>Sidebar Item 2</a></li>
+          <li><Link href="/admin/series">Series</Link></li>
         </ul>
       </div>
     </div>);

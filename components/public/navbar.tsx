@@ -1,8 +1,6 @@
 import { Bars3Icon } from '@heroicons/react/24/solid';
 
-export default function Navbar({
-                                 children,
-                               }: Readonly<{
+export default function Navbar({ children }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
@@ -15,7 +13,7 @@ export default function Navbar({
               <Bars3Icon className="size-6"/>
             </label>
           </div>
-          <div className="mx-2 flex-1 px-2">G.B.B.O.</div>
+          <div className="mx-2 flex-1 px-2 text-xl">G.B.B.O.</div>
           <div className="hidden flex-none lg:block">
             <ul className="menu menu-horizontal">
               <li><a>Navbar Item 1</a></li>

@@ -9,7 +9,92 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      bakers: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string | null
+          name: string
+          series_number: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string | null
+          name: string
+          series_number?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string | null
+          name?: string
+          series_number?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bakers_series_number_fkey"
+            columns: ["series_number"]
+            isOneToOne: false
+            referencedRelation: "series"
+            referencedColumns: ["series_number"]
+          },
+        ]
+      }
+      kysely_migration: {
+        Row: {
+          name: string
+          timestamp: string
+        }
+        Insert: {
+          name: string
+          timestamp: string
+        }
+        Update: {
+          name?: string
+          timestamp?: string
+        }
+        Relationships: []
+      }
+      kysely_migration_lock: {
+        Row: {
+          id: string
+          is_locked: number
+        }
+        Insert: {
+          id: string
+          is_locked?: number
+        }
+        Update: {
+          id?: string
+          is_locked?: number
+        }
+        Relationships: []
+      }
+      series: {
+        Row: {
+          created_at: string
+          id: string | null
+          series_number: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string | null
+          series_number?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string | null
+          series_number?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
