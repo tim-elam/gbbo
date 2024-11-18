@@ -5,7 +5,9 @@ export default function Layout({ children }: Readonly<{
 }>) {
   return (
     <Navbar>
-      { children }
+      <div className="container mt-4 mx-auto">
+        { children }
+      </div>
     </Navbar>
   );
 }

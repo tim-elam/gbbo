@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import { load } from 'cheerio';
 import { db } from '@/utils/data/kysely';
 import { TableInsert } from '@/types/database';
+import { revalidatePath } from 'next/cache';
 
 export async function addSeries(formData: FormData) {
   const seriesNumber = Number.parseInt(formData.get('series_number') as string);
@@ -48,4 +49,7 @@ export async function addSeries(formData: FormData) {
         description: eb.ref('excluded.description'),
       })))
     .execute();
+  revalidatePath('/admin/series');
+  revalidatePath('/');
+  redirect('/admin/series');
 }
