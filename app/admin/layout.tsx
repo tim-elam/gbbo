@@ -6,7 +6,7 @@ export default function Layout({ children }: Readonly<{
 }>) {
   return (
     <AdminNavbar>
-      <div className="container mx-auto mt-4 flex flex-col gap-4">
+      <div className="container mx-auto pt-4 px-4 flex flex-col gap-4">
         <AdminBreadcrumbs/>
         { children }
       </div>

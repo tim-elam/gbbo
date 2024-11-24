@@ -1,8 +1,13 @@
+'use client';
+
 import { FilmIcon } from '@heroicons/react/24/outline';
 import { addSeries } from './actions';
 import { PlusIcon } from '@heroicons/react/20/solid';
+import { clsx } from 'clsx';
+import { useFormStatus } from 'react-dom';
 
 export default function AddSeries() {
+  const { pending } = useFormStatus();
   return (
     <form>
       <div className="card bg-base-100 shadow-md w-96 mx-auto">
@@ -22,9 +27,11 @@ export default function AddSeries() {
                    required/>
           </label>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary"
-                    formAction={ addSeries }
-                    type="submit">
+            <button
+              className={ clsx('btn btn-primary', { 'animate-pulse': pending }) }
+              aria-disabled={ pending }
+              formAction={ addSeries }
+              type="submit">
               <PlusIcon className="size-6"/>
               Add
             </button>

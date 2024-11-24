@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="emerald"
-          className={ `${ lora.variable } ${ lobsterTwo.variable } ${ openSans.variable } font-sans h-full bg-base-200` }>
+          className={ `${ lora.variable } ${ lobsterTwo.variable } ${ openSans.variable } font-sans h-full bg-base-300` }>
     <body className="h-full">
     { children }
     </body>

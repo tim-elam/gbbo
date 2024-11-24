@@ -51,5 +51,4 @@ export async function addSeries(formData: FormData) {
     .execute();
   revalidatePath('/admin/series');
   revalidatePath('/');
-  redirect('/admin/series');
 }

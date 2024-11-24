@@ -1,33 +1,23 @@
 import { Bars3Icon } from '@heroicons/react/24/solid';
-import Link from 'next/link';
-
+import AdminSidebar from './admin-sidebar';
 export default function AdminNavbar({ children }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <div className="drawer h-full">
-      <input id="my-drawer-3" type="checkbox" className="drawer-toggle"/>
+    <div className="drawer lg:drawer-open min-h-full">
+      <input id="admin-nav-drawer" type="checkbox" className="drawer-toggle"/>
       <div className="drawer-content flex flex-col">
-        <div className="navbar bg-base-100 w-full">
+        <div className="navbar bg-base-100 w-full h-24">
           <div className="flex-none lg:hidden">
-            <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
+            <label htmlFor="admin-nav-drawer" aria-label="open sidebar" className="btn btn-square btn-ghost">
               <Bars3Icon className="size-6"/>
             </label>
           </div>
           <div className="mx-2 flex-1 px-2 text-xl">G.B.B.O. Admin</div>
-          <div className="hidden flex-none lg:block">
-            <ul className="menu menu-horizontal">
-              <li><Link href="/admin/series">Series</Link></li>
-            </ul>
-          </div>
         </div>
         { children }
       </div>
-      <div className="drawer-side">
-        <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-        <ul className="menu bg-base-200 min-h-full w-80 p-4">
-          <li><Link href="/admin/series">Series</Link></li>
-        </ul>
-      </div>
-    </div>);
+      <AdminSidebar />
+    </div>
+);
 }
