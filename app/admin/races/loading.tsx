@@ -1,3 +1,3 @@
 export default async function Loading() {
-  return <h1>Loading Series...</h1>
+  return <h1>Loading Races...</h1>
 }

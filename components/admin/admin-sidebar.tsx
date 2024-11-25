@@ -1,7 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronLeftIcon, ChevronRightIcon, FilmIcon, HomeIcon } from '@heroicons/react/24/outline';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  FilmIcon,
+  FlagIcon,
+  HomeIcon,
+  ScaleIcon,
+} from '@heroicons/react/24/outline';
 import { ComponentType, SVGProps, useState } from 'react';
 import { clsx } from 'clsx';
 import { usePathname } from 'next/navigation';
@@ -31,6 +38,16 @@ export default function AdminSidebar() {
       label: 'Series',
       href: '/admin/series',
       Icon: FilmIcon,
+    },
+    {
+      label: 'Issues',
+      href: '/admin/issues',
+      Icon: ScaleIcon,
+    },
+    {
+      label: 'Races',
+      href: '/admin/races',
+      Icon: FlagIcon,
     },
   ];
 

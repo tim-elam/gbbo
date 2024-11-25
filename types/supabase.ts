@@ -15,7 +15,7 @@ export type Database = {
           description: string | null
           id: string | null
           name: string
-          series_number: number
+          series_number: number | null
           updated_at: string
         }
         Insert: {
@@ -23,7 +23,7 @@ export type Database = {
           description?: string | null
           id?: string | null
           name: string
-          series_number: number
+          series_number?: number | null
           updated_at?: string
         }
         Update: {
@@ -31,7 +31,7 @@ export type Database = {
           description?: string | null
           id?: string | null
           name?: string
-          series_number?: number
+          series_number?: number | null
           updated_at?: string
         }
         Relationships: [
@@ -43,6 +43,24 @@ export type Database = {
             referencedColumns: ["series_number"]
           },
         ]
+      }
+        issues: {
+        Row: {
+          id: string
+          slug: string
+          title: string
+        }
+        Insert: {
+          id?: string
+          slug: string
+          title: string
+        }
+        Update: {
+          id?: string
+          slug?: string
+          title?: string
+        }
+        Relationships: []
       }
       kysely_migration: {
         Row: {
@@ -71,6 +89,27 @@ export type Database = {
         Update: {
           id?: string
           is_locked?: number
+        }
+        Relationships: []
+      }
+      races: {
+        Row: {
+          date: string
+          id: string
+          slug: string
+          title: string
+        }
+        Insert: {
+          date: string
+          id?: string
+          slug: string
+          title: string
+        }
+        Update: {
+          date?: string
+          id?: string
+          slug?: string
+          title?: string
         }
         Relationships: []
       }
