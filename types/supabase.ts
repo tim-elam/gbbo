@@ -92,6 +92,27 @@ export type Database = {
         }
         Relationships: []
       }
+      people: {
+        Row: {
+          first_name: string
+          id: string
+          last_name: string
+          slug: string
+        }
+        Insert: {
+          first_name: string
+          id?: string
+          last_name: string
+          slug: string
+        }
+        Update: {
+          first_name?: string
+          id?: string
+          last_name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
       races: {
         Row: {
           date: string

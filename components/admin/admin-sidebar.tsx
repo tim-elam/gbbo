@@ -8,6 +8,7 @@ import {
   FlagIcon,
   HomeIcon,
   ScaleIcon,
+  UserIcon,
 } from '@heroicons/react/24/outline';
 import { ComponentType, SVGProps, useState } from 'react';
 import { clsx } from 'clsx';
@@ -48,6 +49,11 @@ export default function AdminSidebar() {
       label: 'Races',
       href: '/admin/races',
       Icon: FlagIcon,
+    },
+    {
+      label: 'People',
+      href: '/admin/people',
+      Icon: UserIcon,
     },
   ];
 
