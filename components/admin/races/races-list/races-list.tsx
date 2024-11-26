@@ -1,5 +1,6 @@
 import { TableRow } from '@/types/database';
 import { FlagIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
 
 export default function RacesList({ races }: {
   races: TableRow<'races'>[]
@@ -15,16 +16,18 @@ export default function RacesList({ races }: {
           <thead>
           <tr>
             <th>Title</th>
-            <th>Slug</th>
             <th>Date</th>
           </tr>
           </thead>
           <tbody>
           {
-            races.map(({ slug, title, date }) => <tr key={slug}>
-              <td>{title}</td>
-              <td>{slug}</td>
-              <td>{(date as unknown as Date).toLocaleDateString()}</td>
+            races.map(({ slug, title, date }) => <tr key={ slug }>
+              <td>
+                <Link href={ `/admin/races/${ slug }` } className='btn btn-link'>
+                  { title }
+                </Link>
+              </td>
+              <td>{ (date as unknown as Date).toLocaleDateString() }</td>
             </tr>)
           }
           </tbody>

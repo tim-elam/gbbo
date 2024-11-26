@@ -44,7 +44,37 @@ export type Database = {
           },
         ]
       }
-        issues: {
+      candidates: {
+        Row: {
+          person_id: string
+          race_id: string
+        }
+        Insert: {
+          person_id: string
+          race_id: string
+        }
+        Update: {
+          person_id?: string
+          race_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "candidates_person_id_fkey"
+            columns: ["person_id"]
+            isOneToOne: false
+            referencedRelation: "people"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "candidates_race_id_fkey"
+            columns: ["race_id"]
+            isOneToOne: false
+            referencedRelation: "races"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      issues: {
         Row: {
           id: string
           slug: string
