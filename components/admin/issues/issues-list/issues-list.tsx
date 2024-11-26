@@ -7,7 +7,7 @@ export default function IssuesList({ issues }: {
   return (
     <div className="card bg-base-100 shadow-md">
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title text-2xl">
           <ScaleIcon className="size-6"/>
           Issues
         </h2>

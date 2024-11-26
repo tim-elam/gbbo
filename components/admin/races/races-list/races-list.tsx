@@ -8,7 +8,7 @@ export default function RacesList({ races }: {
   return (
     <div className="card bg-base-100 shadow-md">
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title text-2xl">
           <FlagIcon className="size-6"/>
           Races
         </h2>

@@ -17,7 +17,7 @@ export default function AddPerson() {
             Add Person
           </h2>
           <label className="my-4 input input-bordered flex items-center gap-2">
-            First Name:
+            First:
             <input className="grow"
                    type="text"
                    placeholder="Jane"
@@ -25,7 +25,7 @@ export default function AddPerson() {
                    required/>
           </label>
           <label className="my-4 input input-bordered flex items-center gap-2">
-            Last Name:
+            Last:
             <input className="grow"
                    type="text"
                    placeholder="Doe"

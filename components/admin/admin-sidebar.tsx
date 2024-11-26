@@ -51,6 +51,8 @@ export default function AdminSidebar() {
     },
   ];
 
+  const activeLabel = links.findLast(({ href }) => pathname.startsWith(href))?.label;
+
   function linkClick() {
     const adminNavDrawerControl = document.getElementById('admin-nav-drawer') as HTMLInputElement;
     adminNavDrawerControl.checked = false;
@@ -78,22 +80,21 @@ export default function AdminSidebar() {
       }) }>
         {
           links.map(({ label, href, Icon }) => {
-            const active = pathname === href;
+            const active = label === activeLabel;
             return (
               <li key={ `${ label }:${ href }` } className="text-xl">
                 {
-                  active ?
-                    <div className="flex flex-row gap-2 items-center active">
+                  <Link
+                    href={ href }
+                    onClick={ linkClick }
+                    className={ clsx({
+                      active,
+                    }) }>
+                    <div className="flex flex-row gap-2 items-center">
                       <Icon className="my-2 size-6"/>
                       { isDrawerExpanded && label }
                     </div>
-                    :
-                    <Link href={ href } onClick={linkClick}>
-                      <div className="flex flex-row gap-2 items-center">
-                        <Icon className="my-2 size-6"/>
-                        { isDrawerExpanded && label }
-                      </div>
-                    </Link>
+                  </Link>
                 }
               </li>);
           })
