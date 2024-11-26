@@ -1,5 +1,6 @@
 import { TableRow } from '@/types/database';
 import { UserIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
 
 export default function PeopleList({ people }: {
   people: TableRow<'people'>[]
@@ -14,17 +15,19 @@ export default function PeopleList({ people }: {
         <table className="table table-bordered">
           <thead>
           <tr>
-            <th>First</th>
-            <th>Last</th>
-            <th>Slug</th>
+            <th>Name</th>
           </tr>
           </thead>
           <tbody>
           {
-            people.map(({ slug, first_name, last_name }) => <tr key={slug}>
-              <td>{first_name}</td>
-              <td>{last_name}</td>
-              <td>{slug}</td>
+            people.map(({ slug, first_name, last_name }) => <tr key={ slug }>
+              <td>
+                <Link
+                  href={ `/admin/people/${ slug }` }
+                  className="btn btn-link btn-primary">
+                  { first_name } { last_name }
+                </Link>
+              </td>
             </tr>)
           }
           </tbody>

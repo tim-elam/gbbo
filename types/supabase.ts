@@ -9,41 +9,6 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      bakers: {
-        Row: {
-          created_at: string
-          description: string | null
-          id: string | null
-          name: string
-          series_number: number | null
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          description?: string | null
-          id?: string | null
-          name: string
-          series_number?: number | null
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          description?: string | null
-          id?: string | null
-          name?: string
-          series_number?: number | null
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "bakers_series_number_fkey"
-            columns: ["series_number"]
-            isOneToOne: false
-            referencedRelation: "series"
-            referencedColumns: ["series_number"]
-          },
-        ]
-      }
       candidates: {
         Row: {
           person_id: string
@@ -143,6 +108,42 @@ export type Database = {
         }
         Relationships: []
       }
+      positions: {
+        Row: {
+          content: string
+          id: string
+          issue_id: string
+          person_id: string
+        }
+        Insert: {
+          content: string
+          id?: string
+          issue_id: string
+          person_id: string
+        }
+        Update: {
+          content?: string
+          id?: string
+          issue_id?: string
+          person_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "positions_issue_id_fkey"
+            columns: ["issue_id"]
+            isOneToOne: false
+            referencedRelation: "issues"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "positions_person_id_fkey"
+            columns: ["person_id"]
+            isOneToOne: false
+            referencedRelation: "people"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       races: {
         Row: {
           date: string
@@ -161,27 +162,6 @@ export type Database = {
           id?: string
           slug?: string
           title?: string
-        }
-        Relationships: []
-      }
-      series: {
-        Row: {
-          created_at: string
-          id: string | null
-          series_number: number | null
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string | null
-          series_number?: number | null
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          id?: string | null
-          series_number?: number | null
-          updated_at?: string
         }
         Relationships: []
       }

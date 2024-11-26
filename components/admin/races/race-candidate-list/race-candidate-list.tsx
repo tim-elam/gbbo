@@ -1,10 +1,12 @@
 import UserIcon from '@heroicons/react/24/outline/UserIcon';
+import Link from 'next/link';
 
 export interface RaceCandidateListProps {
   candidates: {
     person_id: string,
     first_name: string;
     last_name: string;
+    slug: string;
   }[];
 }
 
@@ -20,15 +22,19 @@ export default function RaceCandidateList({ candidates }: RaceCandidateListProps
           <thead>
           <tr>
             <th>Name</th>
+            <th>Date</th>
           </tr>
           </thead>
           <tbody>
           {
-            candidates.map(({ person_id, first_name, last_name }) =>
+            candidates.map(({ person_id, slug, first_name, last_name }) =>
               <tr key={ person_id }>
                 <td>
-                  { first_name }
-                  { last_name }
+                  <Link
+                    href={ `/admin/people/${ slug }` }
+                    className="btn btn-primary btn-link">
+                    { first_name } { last_name }
+                  </Link>
                 </td>
               </tr>,
             )

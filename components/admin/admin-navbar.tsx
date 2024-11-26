@@ -1,5 +1,6 @@
 import { Bars3Icon } from '@heroicons/react/24/solid';
 import AdminSidebar from './admin-sidebar';
+
 export default function AdminNavbar({ children }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -13,7 +14,7 @@ export default function AdminNavbar({ children }: Readonly<{
               <Bars3Icon className="size-6"/>
             </label>
           </div>
-          <div className="mx-2 flex-1 px-2 text-xl">G.B.B.O. Admin</div>
+          <div className="mx-2 flex-1 px-2 text-2xl">Stem: Admin</div>
         </div>
         { children }
       </div>

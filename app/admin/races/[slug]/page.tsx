@@ -23,6 +23,7 @@ export default async function RacePage({ params }: {
             'candidates.person_id',
             'people.first_name',
             'people.last_name',
+            'people.slug',
           ]),
       ).as('candidates'),
       jsonArrayFrom(

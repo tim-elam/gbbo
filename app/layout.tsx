@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Lora, Open_Sans, Lobster_Two } from 'next/font/google';
+import { Lobster_Two, Lora, Open_Sans } from 'next/font/google';
 
 export const metadata: Metadata = {
-  title: 'G.B.B.O.',
-  description: 'G.B.B.O Fan Site',
+  title: 'Stem',
+  description: 'Stem Site',
 };
 
 const lobsterTwo = Lobster_Two({
