@@ -165,6 +165,38 @@ export type Database = {
         }
         Relationships: []
       }
+      websites: {
+        Row: {
+          id: string
+          origin: string
+          person_id: string
+          slug: string
+          title: string
+        }
+        Insert: {
+          id?: string
+          origin: string
+          person_id: string
+          slug: string
+          title: string
+        }
+        Update: {
+          id?: string
+          origin?: string
+          person_id?: string
+          slug?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "websites_person_id_fkey"
+            columns: ["person_id"]
+            isOneToOne: false
+            referencedRelation: "people"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

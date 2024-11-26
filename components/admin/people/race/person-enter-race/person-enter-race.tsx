@@ -19,7 +19,7 @@ interface PersonEnterRaceProps {
 export default function PersonEnterRace({ races, personSlug }: PersonEnterRaceProps) {
   const [race, setRace] = useState<PersonEnterRaceProps['races'][number] | null>(null);
   const { pending } = useFormStatus();
-  function handleIssueChange(event: React.ChangeEvent<HTMLSelectElement>) {
+  function handleRaceChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const race = races[+event.target.value];
     setRace(race);
   }
@@ -39,7 +39,7 @@ export default function PersonEnterRace({ races, personSlug }: PersonEnterRacePr
             <select
               className="select select-bordered"
               required={true}
-              onChange={ handleIssueChange }>
+              onChange={ handleRaceChange }>
               <option value="" disabled>
                 Select an Race...
               </option>

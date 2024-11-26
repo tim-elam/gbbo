@@ -5,6 +5,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   FlagIcon,
+  GlobeAltIcon,
   HomeIcon,
   ScaleIcon,
   UserIcon,
@@ -48,6 +49,11 @@ export default function AdminSidebar() {
       label: 'People',
       href: '/admin/people',
       Icon: UserIcon,
+    },
+    {
+      label: 'Websites',
+      href: '/admin/websites',
+      Icon: GlobeAltIcon,
     },
   ];
 

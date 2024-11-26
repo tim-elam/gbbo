@@ -1,6 +1,6 @@
 import { TableRow } from '@/types/database';
 import Link from 'next/link';
-import { FlagIcon, LightBulbIcon, UserIcon } from '@heroicons/react/24/outline';
+import { FlagIcon, GlobeAltIcon, LightBulbIcon, UserIcon } from '@heroicons/react/24/outline';
 
 export default function PeopleList({ people }: {
   people: TableRow<'people'>[]
@@ -42,6 +42,11 @@ export default function PeopleList({ people }: {
                       href={ `${ href }/races` }
                       className="btn btn-primary btn-sm btn-outline btn-square">
                       <FlagIcon className="size-6"/>
+                    </Link>
+                    <Link
+                      href={ `${ href }/websites` }
+                      className="btn btn-primary btn-sm btn-outline btn-square">
+                      <GlobeAltIcon className="size-6"/>
                     </Link>
                   </div>
                 </td>

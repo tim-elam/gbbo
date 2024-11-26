@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FlagIcon, LightBulbIcon } from '@heroicons/react/20/solid';
+import { FlagIcon, GlobeAltIcon, LightBulbIcon } from '@heroicons/react/20/solid';
 import { usePathname } from 'next/navigation';
 import { clsx } from 'clsx';
 import { ComponentType, SVGProps } from 'react';
@@ -29,6 +29,11 @@ export default function PersonDetailTabs({ slug }: PersonDetailTabsProps) {
       label: 'Races',
       Icon: FlagIcon,
     },
+    {
+      segment: 'websites',
+      label: 'Websites',
+      Icon: GlobeAltIcon,
+    }
   ];
 
   return (
