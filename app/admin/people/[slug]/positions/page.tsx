@@ -39,7 +39,7 @@ export default async function PeoplePositions(options: {
   return (
     <div className="flex flex-col gap-4">
       <PersonAddPosition personSlug={slug} issues={ issues }/>
-      <PersonPositionsList positions={ positions }/>
+      <PersonPositionsList positions={ positions } issues={issues} />
     </div>
   );
 }
