@@ -4,7 +4,6 @@ import Link from 'next/link';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
-  FilmIcon,
   FlagIcon,
   HomeIcon,
   ScaleIcon,
@@ -34,11 +33,6 @@ export default function AdminSidebar() {
       label: 'Home',
       href: '/admin',
       Icon: HomeIcon,
-    },
-    {
-      label: 'Series',
-      href: '/admin/series',
-      Icon: FilmIcon,
     },
     {
       label: 'Issues',
