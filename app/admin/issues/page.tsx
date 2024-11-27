@@ -5,7 +5,10 @@ import { db } from '@/utils/data/kysely';
 export default async function IssuesPage() {
   const issues = await db.selectFrom('issues')
     .orderBy('title asc')
-    .selectAll()
+    .select([
+      'issues.slug',
+      'issues.title',
+    ])
     .execute();
   return (
     <div className="flex flex-col gap-4">

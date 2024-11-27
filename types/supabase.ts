@@ -41,16 +41,19 @@ export type Database = {
       }
       issues: {
         Row: {
+          embedding: string
           id: string
           slug: string
           title: string
         }
         Insert: {
+          embedding: string
           id?: string
           slug: string
           title: string
         }
         Update: {
+          embedding?: string
           id?: string
           slug?: string
           title?: string
