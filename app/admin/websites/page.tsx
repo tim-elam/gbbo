@@ -8,7 +8,6 @@ export default async function WebsitesPage() {
       .orderBy('websites.title')
       .innerJoin('people', 'people.id', 'websites.person_id')
       .select([
-        'websites.id as id',
         'websites.origin as origin',
         'websites.title as title',
         'websites.slug as slug',

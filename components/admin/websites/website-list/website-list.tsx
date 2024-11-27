@@ -3,10 +3,11 @@
 import { BugAntIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { crawl } from '@/components/admin/websites/website-list/actions';
+import { useState } from 'react';
+import { clsx } from 'clsx';
 
 interface WebsitesListProps {
   websites: {
-    id: string;
     origin: string;
     title: string;
     slug: string;
@@ -17,6 +18,16 @@ interface WebsitesListProps {
 }
 
 export default function WebsitesList({ websites }: WebsitesListProps) {
+  const [crawlingSlug, setCrawlingSlug] = useState('');
+
+  async function handleCrawl(slug: string) {
+    if (!crawlingSlug) {
+      setCrawlingSlug(slug);
+      await crawl({ slug });
+      setCrawlingSlug('');
+    }
+  }
+
   return (
     <div className="card bg-base-100 shadow-md">
       <div className="card-body">
@@ -35,7 +46,7 @@ export default function WebsitesList({ websites }: WebsitesListProps) {
           </thead>
           <tbody>
           {
-            websites.map(({ id, title, origin, slug, personSlug, personLastName, personFirstName }) => (
+            websites.map(({ title, origin, slug, personSlug, personLastName, personFirstName }) => (
               <tr key={ slug }>
                 <td>
                   <Link
@@ -53,8 +64,11 @@ export default function WebsitesList({ websites }: WebsitesListProps) {
                   </Link>
                 </td>
                 <td>
-                  <button className="btn btn-sm btn-primary btn-outline btn-square"
-                          onClick={ () => crawl({ slug }) }>
+                  <button
+                    className={ clsx('btn btn-sm btn-primary btn-outline btn-square', {
+                      'animate-pulse': crawlingSlug === slug,
+                    }) }
+                    onClick={ () => handleCrawl(slug) }>
                     <BugAntIcon className="size-6"/>
                   </button>
                 </td>
