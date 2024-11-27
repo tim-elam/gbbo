@@ -11,7 +11,7 @@ export default function IssuesList({ issues }: {
           <ScaleIcon className="size-6"/>
           Issues
         </h2>
-        <table className="table table-bordered">
+        <table className="table table-bordered table-zebra">
           <thead>
           <tr>
             <th>Title</th>

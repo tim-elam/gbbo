@@ -17,7 +17,7 @@ export default async function PersonWebsitesList({ websites }: PersonWebsitesLis
           <GlobeAltIcon className="size-6"/>
           Websites
         </h2>
-        <table className="table table-bordered">
+        <table className="table table-bordered table-zebra">
           <thead>
           <tr>
             <th>Title</th>

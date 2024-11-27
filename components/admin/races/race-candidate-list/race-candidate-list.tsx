@@ -18,7 +18,7 @@ export default function RaceCandidateList({ candidates }: RaceCandidateListProps
           <UserIcon className="size-6"/>
           Candidates
         </div>
-        <table className="table table-bordered">
+        <table className="table table-bordered table-zebra">
           <thead>
           <tr>
             <th>Name</th>

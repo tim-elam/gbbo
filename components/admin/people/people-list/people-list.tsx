@@ -12,7 +12,7 @@ export default function PeopleList({ people }: {
           <UserIcon className="size-6"/>
           People
         </h2>
-        <table className="table table-bordered">
+        <table className="table table-bordered table-zebra">
           <thead>
           <tr>
             <th>Name</th>

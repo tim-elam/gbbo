@@ -12,7 +12,7 @@ export default function RacesList({ races }: {
           <FlagIcon className="size-6"/>
           Races
         </h2>
-        <table className="table table-bordered">
+        <table className="table table-bordered table-zebra">
           <thead>
           <tr>
             <th>Title</th>

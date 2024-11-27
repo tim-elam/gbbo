@@ -18,7 +18,7 @@ export default async function PersonRacesList({ races }: PersonRacesListProps) {
           <FlagIcon className="size-6"/>
           Races
         </h2>
-        <table className="table table-bordered">
+        <table className="table table-bordered table-zebra">
           <thead>
           <tr>
             <th>Race</th>
