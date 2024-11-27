@@ -3,7 +3,15 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ComponentType, SVGProps } from 'react';
-import { FlagIcon, GlobeAltIcon, HomeIcon, LightBulbIcon, ScaleIcon, UserIcon } from '@heroicons/react/24/outline';
+import {
+  DocumentTextIcon,
+  FlagIcon,
+  GlobeAltIcon,
+  HomeIcon,
+  LightBulbIcon,
+  ScaleIcon,
+  UserIcon,
+} from '@heroicons/react/24/outline';
 
 export default function AdminBreadcrumbs() {
   const pathname = usePathname();
@@ -16,6 +24,7 @@ export default function AdminBreadcrumbs() {
     people: UserIcon,
     positions: LightBulbIcon,
     websites: GlobeAltIcon,
+    'web-pages': DocumentTextIcon,
   };
 
   return (

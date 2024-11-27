@@ -3,7 +3,7 @@ import { db } from '@/utils/data/kysely';
 import WebsiteWebPageList from '@/components/admin/websites/website-details/web-page-list/website-web-page-list';
 import { sql } from 'kysely';
 
-export default async function RacePage({ params }: {
+export default async function WebsiteDetailPage({ params }: {
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
@@ -20,8 +20,10 @@ export default async function RacePage({ params }: {
       .where('websites.slug', '=', slug)
       .select([
         'web_pages.pathname',
-        sql<string>('substring(web_pages.content  from 1 for 50)').as('content'),
+        'web_pages.id',
+        sql<string>`substring(web_pages.content  from 1 for 50)`.as('content'),
       ])
+      .orderBy('web_pages.pathname')
       .execute(),
   ]);
 
@@ -29,6 +31,7 @@ export default async function RacePage({ params }: {
     <div className="flex flex-col gap-4">
       <WebsiteAddWebPage website={website}/>
       <WebsiteWebPageList
+        websiteSlug={slug}
         webPages={ webPages }/>
     </div>
   );

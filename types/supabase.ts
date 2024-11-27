@@ -165,23 +165,55 @@ export type Database = {
         }
         Relationships: []
       }
+      web_page_chunks: {
+        Row: {
+          content: string
+          embedding: string
+          from_line: number
+          to_line: number
+          web_page_id: string | null
+        }
+        Insert: {
+          content: string
+          embedding: string
+          from_line: number
+          to_line: number
+          web_page_id?: string | null
+        }
+        Update: {
+          content?: string
+          embedding?: string
+          from_line?: number
+          to_line?: number
+          web_page_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "web_page_chunks_web_page_id_fkey"
+            columns: ["web_page_id"]
+            isOneToOne: false
+            referencedRelation: "web_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       web_pages: {
         Row: {
           content: string | null
+          id: string
           pathname: string
-          slug: string
           website_origin: string
         }
         Insert: {
           content?: string | null
+          id?: string
           pathname: string
-          slug: string
           website_origin: string
         }
         Update: {
           content?: string | null
+          id?: string
           pathname?: string
-          slug?: string
           website_origin?: string
         }
         Relationships: [
