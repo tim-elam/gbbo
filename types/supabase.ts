@@ -165,6 +165,35 @@ export type Database = {
         }
         Relationships: []
       }
+      web_pages: {
+        Row: {
+          content: string | null
+          pathname: string
+          slug: string
+          website_origin: string
+        }
+        Insert: {
+          content?: string | null
+          pathname: string
+          slug: string
+          website_origin: string
+        }
+        Update: {
+          content?: string | null
+          pathname?: string
+          slug?: string
+          website_origin?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "web_pages_website_origin_fkey"
+            columns: ["website_origin"]
+            isOneToOne: false
+            referencedRelation: "websites"
+            referencedColumns: ["origin"]
+          },
+        ]
+      }
       websites: {
         Row: {
           id: string

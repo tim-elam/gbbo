@@ -36,7 +36,7 @@ export default function PersonAddWebsite({ personSlug }: PersonAddWebsiteProps) 
             Title:
             <input className="grow"
                    type="text"
-                   placeholder="Canddidate Site"
+                   placeholder="Candidate Site"
                    value={title}
                    onChange={handleTitleChange}
                    required/>

@@ -12,11 +12,11 @@ export default function AddPerson() {
     <form>
       <div className="card bg-base-100 shadow-md w-96 mx-auto">
         <div className="card-body">
-          <h2 className="card-title flex gap-2 items-center">
+          <h2 className="card-title flex gap-4 items-center">
             <UserIcon className="size-6"/>
             Add Person
           </h2>
-          <label className="my-4 input input-bordered flex items-center gap-2">
+          <label className="input input-bordered flex items-center gap-2">
             First:
             <input className="grow"
                    type="text"
@@ -24,7 +24,7 @@ export default function AddPerson() {
                    name="first_name"
                    required/>
           </label>
-          <label className="my-4 input input-bordered flex items-center gap-2">
+          <label className="input input-bordered flex items-center gap-2">
             Last:
             <input className="grow"
                    type="text"
