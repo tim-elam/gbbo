@@ -1,4 +1,5 @@
 import GlobeAltIcon from '@heroicons/react/24/outline/GlobeAltIcon';
+import Link from 'next/link';
 
 interface PersonWebsitesListProps {
   websites: {
@@ -27,7 +28,12 @@ export default async function PersonWebsitesList({ websites }: PersonWebsitesLis
           {
             websites.map(({ title, origin, slug }) => (
               <tr key={ slug }>
-                <td>{ title }</td>
+                <td>
+                  <Link href={ `/admin/websites/${ slug }` }
+                        className="btn btn-sm btn-link">
+                    { title }
+                  </Link>
+                </td>
                 <td>{ origin }</td>
               </tr>
             ))
