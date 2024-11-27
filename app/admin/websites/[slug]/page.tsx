@@ -20,7 +20,7 @@ export default async function RacePage({ params }: {
       .where('websites.slug', '=', slug)
       .select([
         'web_pages.pathname',
-        sql<string>('substring(web_pages.content  from 1 for 15)').as('content'),
+        sql<string>('substring(web_pages.content  from 1 for 50)').as('content'),
       ])
       .execute(),
   ]);
