@@ -32,7 +32,7 @@ export default function RaceCandidateList({ candidates }: RaceCandidateListProps
                 <td>
                   <Link
                     href={ `/admin/people/${ slug }` }
-                    className="btn btn-primary btn-link">
+                    className="btn btn-primary btn-sm btn-link">
                     { first_name } { last_name }
                   </Link>
                 </td>

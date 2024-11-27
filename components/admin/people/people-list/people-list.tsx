@@ -27,7 +27,7 @@ export default function PeopleList({ people }: {
                 <td>
                   <Link
                     href={ href }
-                    className="btn btn-link btn-primary">
+                    className="btn btn-sm btn-link btn-primary">
                     { first_name } { last_name }
                   </Link>
                 </td>

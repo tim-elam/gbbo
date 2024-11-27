@@ -40,7 +40,7 @@ export default function WebsitesList({ websites }: WebsitesListProps) {
                 <td>
                   <Link
                     href={ `/admin/websites/${ slug }` }
-                    className="btn btn-link">
+                    className="btn btn-sm btn-link">
                     { title }
                   </Link>
                 </td>
@@ -48,7 +48,7 @@ export default function WebsitesList({ websites }: WebsitesListProps) {
                 <td>
                   <Link
                     href={ `/admin/people/${ personSlug }` }
-                    className="btn btn-link">
+                    className="btn btn-sm btn-link">
                     { personFirstName } { personLastName }
                   </Link>
                 </td>

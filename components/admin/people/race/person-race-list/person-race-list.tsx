@@ -32,7 +32,7 @@ export default async function PersonRacesList({ races }: PersonRacesListProps) {
                 <td>
                   <Link
                     href={ `/admin/races/${ slug }` }
-                    className="btn btn-primary btn-link">
+                    className="btn btn-primary btn-sm btn-link">
                     { title }
                   </Link>
                 </td>

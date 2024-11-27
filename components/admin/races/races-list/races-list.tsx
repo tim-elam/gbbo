@@ -23,7 +23,7 @@ export default function RacesList({ races }: {
           {
             races.map(({ slug, title, date }) => <tr key={ slug }>
               <td>
-                <Link href={ `/admin/races/${ slug }` } className='btn btn-link'>
+                <Link href={ `/admin/races/${ slug }` } className='btn btn-sm btn-link'>
                   { title }
                 </Link>
               </td>
