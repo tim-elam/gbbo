@@ -17,6 +17,7 @@ export default $config({
   async run() {
     const databaseUrl = new sst.Secret('DatabaseUrl');
     const supabaseCert = new sst.Secret('SupabaseCert');
+    const openaiApiKey = new sst.Secret('OPENAI_API_KEY');
 
     const publicBucket = new sst.aws.Bucket('GbboPublic', {
       access: 'public',
@@ -26,6 +27,7 @@ export default $config({
         publicBucket,
         databaseUrl,
         supabaseCert,
+        openaiApiKey,
       ],
       // These are not secret values, and they need to be accessible by the NextJS edge runtime (no SST access)
       environment: {

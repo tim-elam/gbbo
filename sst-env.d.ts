@@ -2,7 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /* deno-fmt-ignore-file */
-import "sst"
+import 'sst';
+
 export {}
 declare module "sst" {
   export interface Resource {
@@ -17,6 +18,10 @@ declare module "sst" {
     "MyWeb": {
       "type": "sst.aws.Nextjs"
       "url": string
+    }
+    "OPENAI_API_KEY": {
+      "type": "sst.sst.Secret"
+      "value": string
     }
     "SupabaseCert": {
       "type": "sst.sst.Secret"

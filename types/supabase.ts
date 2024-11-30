@@ -93,18 +93,21 @@ export type Database = {
       people: {
         Row: {
           first_name: string
+          fts: unknown | null
           id: string
           last_name: string
           slug: string
         }
         Insert: {
           first_name: string
+          fts?: unknown | null
           id?: string
           last_name: string
           slug: string
         }
         Update: {
           first_name?: string
+          fts?: unknown | null
           id?: string
           last_name?: string
           slug?: string
@@ -266,7 +269,12 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      immutable_unaccent: {
+        Args: {
+          "": string
+        }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
