@@ -13,7 +13,7 @@ export const StartNode: FC<StartNodeProps> = memo(function StartNode({ isConnect
       position={ Position.Right }
       isConnectable={ isConnectable }
     />
-    <div className="bg-green-400/90 rounded-md shadow-sm p-2">
+    <div className="bg-green-400 rounded-md shadow-sm p-2">
         <PlayIcon className='size-6'/>
     </div>
   </>;

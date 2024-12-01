@@ -13,7 +13,7 @@ export const EndNode: FC<EndNodeProps> = memo(function EndNode({ isConnectable }
       position={ Position.Left }
       isConnectable={ isConnectable }
     />
-    <div className="bg-red-400/90 rounded-md shadow-sm p-2">
+    <div className="bg-red-400 rounded-md shadow-sm p-2">
         <StopIcon className='size-6'/>
     </div>
   </>;

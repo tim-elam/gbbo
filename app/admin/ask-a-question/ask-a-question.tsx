@@ -13,6 +13,7 @@ interface AskAQuestionProps {
 export default function AskAQuestion({ className }: AskAQuestionProps) {
   const [question, setQuestion] = useState('Who is nikki jones?');
   const [answer, setAnswer] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
 
   function handleQuestionChange(event: ChangeEvent<HTMLInputElement>) {
@@ -20,8 +21,10 @@ export default function AskAQuestion({ className }: AskAQuestionProps) {
   }
 
   async function handleAskQuestion() {
+    setIsLoading(true);
     const response = await askQuestion(question);
     setAnswer(response);
+    setIsLoading(false);
   }
 
   return (
@@ -40,7 +43,9 @@ export default function AskAQuestion({ className }: AskAQuestionProps) {
                    onChange={ handleQuestionChange }
                    required/>
             <button
-              className="btn join-item"
+              className={ clsx('btn join-item', {
+                'animate-pulse': isLoading,
+              }) }
               onClick={ handleAskQuestion }>
               Ask
               <ArrowDownIcon className="size-4"/>

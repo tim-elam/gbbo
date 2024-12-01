@@ -16,7 +16,7 @@ export const AgentNode: FC<AgentNodeProps> = memo(function AgentNode({ isConnect
       position={ Position.Left }
       isConnectable={ isConnectable }
     />
-    <div className="bg-blue-400/90 rounded-md shadow-sm p-2 flex flex-row gap-1 items-center">
+    <div className="bg-blue-100/95 rounded-md shadow-sm p-2 flex flex-row gap-1 items-center">
       <SparklesIcon className="size-4"/>
       { data.label }
     </div>
