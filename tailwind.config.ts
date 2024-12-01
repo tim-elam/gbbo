@@ -1,8 +1,9 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 import daisyui from 'daisyui';
 import typography from '@tailwindcss/typography';
 
 export default {
+  important: true,
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",

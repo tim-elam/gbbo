@@ -4,9 +4,14 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 import { ArrowDownIcon } from '@heroicons/react/20/solid';
 import React, { ChangeEvent, useState } from 'react';
 import { askQuestion } from './actions';
+import { clsx } from 'clsx';
 
-export default function AskAQuestion() {
-  const [question, setQuestion] = useState('eshe collins');
+interface AskAQuestionProps {
+  className?: string;
+}
+
+export default function AskAQuestion({ className }: AskAQuestionProps) {
+  const [question, setQuestion] = useState('Who is nikki jones?');
   const [answer, setAnswer] = useState('');
 
 
@@ -20,7 +25,7 @@ export default function AskAQuestion() {
   }
 
   return (
-    <div className="card bg-base-100 shadow-md">
+    <div className={ clsx('card bg-base-100 shadow-md', className) }>
       <div className="card-body">
         <h2 className="card-title">
           <QuestionMarkCircleIcon className="size-6"/>
@@ -31,12 +36,12 @@ export default function AskAQuestion() {
             <input className="input input-bordered w-full join-item"
                    type="text"
                    placeholder="My question is..."
-                   value={question}
-                   onChange={handleQuestionChange}
+                   value={ question }
+                   onChange={ handleQuestionChange }
                    required/>
             <button
               className="btn join-item"
-              onClick={handleAskQuestion}>
+              onClick={ handleAskQuestion }>
               Ask
               <ArrowDownIcon className="size-4"/>
             </button>
