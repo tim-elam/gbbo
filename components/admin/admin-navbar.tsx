@@ -8,7 +8,7 @@ export default function AdminNavbar({ children }: Readonly<{
     <div className="drawer lg:drawer-open min-h-full">
       <input id="admin-nav-drawer" type="checkbox" className="drawer-toggle"/>
       <div className="drawer-content flex flex-col">
-        <div className="navbar bg-base-100 w-full h-24">
+        <div className="navbar bg-base-100 w-full h-24 shrink-0">
           <div className="flex-none lg:hidden">
             <label htmlFor="admin-nav-drawer" aria-label="open sidebar" className="btn btn-square btn-ghost">
               <Bars3Icon className="size-6"/>
