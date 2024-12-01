@@ -159,7 +159,22 @@ export default function AgentDiagram({ className }: ReactFlowPlaygroundProps) {
       >
         <Controls/>
         {
-          isMinimapVisible && <MiniMap/>
+          isMinimapVisible && <MiniMap
+            nodeStrokeColor={ ({ type }) => {
+              switch (type) {
+                case 'start':
+                  return 'green';
+                case 'agent':
+                  return 'blue';
+                case 'tool':
+                  return 'yellow';
+                case 'end':
+                  return 'red';
+                default:
+                  return 'white';
+              }
+            } }
+          />
         }
         <button
           className={ clsx('btn btn-square btn-sm btn-secondary absolute z-50 bottom-6 right-0', {
